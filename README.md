@@ -5,6 +5,8 @@ Created a "vulnerability" index, ranking airports in terms of their importance i
 
 * Click [here](https://github.com/sarangof/air-travel-USA/blob/master/report.pdf) to read the report in pdf.
 
+* Exploratory-nb.ipynb is where the Python coding happened.
+
 * [Departure vulnerability]
 (https://saf537.carto.com/viz/2a0577d0-59ce-11e6-8dc3-0ecd1babdde5/public_map)
 ![alt text](https://github.com/sarangof/air-travel-USA/blob/master/plots/departure_vulnerability.png "Vulnerability in Continental USA (departures).")
