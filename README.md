@@ -15,5 +15,5 @@ Created a "vulnerability" index, ranking airports in terms of their importance i
 
 ![alt text](https://github.com/sarangof/air-travel-USA/blob/master/plots/arrival_vulnerability.png "Vulnerability index in Continental USA (arrivals).")
 
-Also showed that, on average (comparing the same trips), the scheduled length of trips has increased, whereas the on-time performance has not improved significantly. 
+* Also showed that, on average (comparing the same trips), the scheduled length of trips has increased, whereas the on-time performance has not improved significantly. 
 
