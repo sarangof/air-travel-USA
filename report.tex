@@ -4,6 +4,7 @@
 \usepackage{fullpage} % changes the margin
 \usepackage{graphicx, wrapfig, subcaption, setspace, booktabs}
 \usepackage{url}
+\usepackage{hyperref}
 
 \begin{document}
 %Header-Make sure you update this information!!!!
@@ -21,15 +22,14 @@ A conversation with an airline schedule specialist made me wonder if it is true 
 
 I represented airports in the data set \footnote{Used 2008 data because it was the most recent year in the source that I ended up acquiring the data from.} as nodes in a network, where the edges are the presence of direct flights between those airports, and the weights are the total number of trips between airports in a year. Used \textit{betweenness centrality} as a measure of the importance of each airport in terms of incoming and outgoing \textit{domestic} connections. The top ten airports according to this ranging are listed in Table \ref{centrality}. Notice that these airports are not necessarily the largest or busiest terminals in the United States. A proof of this is that airports with higher local relevance become more important, whereas big airports with large flux of international flows, such as JFK, lose focus.
 
-
+\begin{center}
 \captionof{table}{Top 10 most important airports in terms of betweenness centrality.}
-\resizebox{5 cm}{!}{
-\centering
-\begin{tabular}{|l c|}
-\centering
+
+\resizebox{7 cm}{!}{
+\begin{tabular}{l c}
 \label{centrality}
 %\hline
-\textbf{Airport} & \textbf{ArrDelay} \\
+\textbf{Airport} & \textbf{Betweenness centrality} \\
 \hline
 Atlanta &	0.133890 \\
 Dallas 	& 0.085455 \\
@@ -41,9 +41,11 @@ Denver 	& 0.051072 \\
 Detroit 	& 0.042831 \\
 Houston 	& 0.040318 \\
 San Francisco & 	0.038127 \\
-%\hline
+\hline
 \end{tabular}
 }
+\end{center}
+
 
 \vspace*{0.5cm}
 
@@ -51,13 +53,15 @@ When wanting to know about the performance of the airports (nodes) in this netwo
 
 
 \captionof{table}{Worst performing airports in terms of arrival performance.}
-\resizebox{5 cm}{!}{
-\centering
-\begin{tabular}{|l c|}
-\centering
+\begin{center}
+\resizebox{7 cm}{!}{
+
+\begin{tabular}{l c}
+
+
 \label{arrival_performance}
-%\hline
-\textbf{destin city} & \textbf{ArrDelay} \\
+
+\textbf{Destination} & \textbf{Average arrival delay} \\
 \hline
 Springfield 	& 63.447158 \\
 Aspen 	& 29.995056 \\
@@ -69,20 +73,24 @@ Norfolk 	& 20.653845 \\
 Chico 	& 19.905077 \\
 Eagle 	& 19.462659 \\
 Butte 	& 18.991971 \\
+\hline
 %\hline
 \end{tabular}
 }
+\end{center}
 \vspace*{0.5cm}
 
 
 \captionof{table}{Worst performing airports in terms of departure performance.}
-\resizebox{5 cm}{!}{
+\begin{center}
+\resizebox{7 cm}{!}{
 \centering
-\begin{tabular}{|l c|}
+\begin{tabular}{l c}
 \centering
 \label{departure_performance}
 %\hline
-\textbf{origin city} &	\textbf{DepDelay} \\
+\textbf{Origin} &	\textbf{Average departure delay} \\
+\hline
 Champaign &	149.266698 \\
 Roanoke 	& 51.956570 \\
 Arcata/Eureka & 	48.000720 \\
@@ -93,9 +101,10 @@ Charlottesville & 	32.597403 \\
 Grand Junction & 	31.171125 \\
 Fargo 	& 30.783061 \\
 Nantucket 	& 29.892045 \\
-%\hline
+\hline
 \end{tabular}
 }
+\end{center}
 \vspace*{0.5cm}
 
 Although this is important to know, most of the airports in these lists are small and are not very relevant in the system itself. That is why I decided to create a ratio of bad performance relative to network importance for domestic flights. This \textit{index} is calculated as follows:
@@ -105,13 +114,15 @@ $$Vulnerability_{airport}=\frac{Average\_delay_{airport}}{Centrality_{airport}}$
 The most "vulnerable" airports in terms of arrivals are listed in Table \ref{vul_arrivals} and plotted in Figure \ref{arr_plot}. The same list is presented for departures in Table \ref{vul_departues} and mapped in Figure \ref{dep_plot}.
 
 \captionof{table}{Most vulnerable airports (arrival).}
+\begin{center}
 \resizebox{5 cm}{!}{
 \centering
-\begin{tabular}{|l c|}
+\begin{tabular}{l c}
 \centering
 \label{vul_arrivals}
 %\hline
-\textbf{destin city }& \textbf{	ind} 	 \\
+\textbf{Destination}& \textbf{Index} 	 \\
+\hline
 Atlanta 	& 0.160344 	 \\
 Salt Lake City & 	0.128662 	\\
 Minneapolis 	& 0.127824 	 \\
@@ -122,16 +133,11 @@ Chicago 	& 0.062064 	\\
 Houston 	& 0.059642 	\\
 Anchorage &	0.057610 \\	
 Phoenix 	& 0.055963 	\\
-
+\hline
 %\hline
 \end{tabular}
 }
-
-
-
-
-
-
+\end{center}
 
 
 \begin{figure}[!ht]
@@ -144,13 +150,15 @@ Phoenix 	& 0.055963 	\\
 
 
 \captionof{table}{Most vulnerable airports (departure).}
+\begin{center}
 \resizebox{5 cm}{!}{
 \centering
-\begin{tabular}{|l c|}
+\begin{tabular}{l c}
 \centering
 \label{vul_departues}
 %\hline
-\textbf{destin} & \textbf{city 	ind} 	\\
+\textbf{Destination} & \textbf{Index} 	\\
+\hline
 Anchorage & 0.182137 	\\
 Atlanta 	& 0.167439 	\\
 Salt Lake City & 	0.121132 	\\
@@ -162,10 +170,10 @@ Seattle  &	0.072145 	\\
 San Francisco & 	0.065996 	\\
 Denver &	 0.062989 	\\
 
-%\hline
+\hline
 \end{tabular}
 }
-
+\end{center}
 
 
 \begin{figure}[!ht]
